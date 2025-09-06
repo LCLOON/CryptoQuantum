@@ -1,6 +1,7 @@
 """
 Force Initialization System for Streamlit Cloud
 Creates a guaranteed initialization that bypasses cache checks
+Version: 2.0 - Fixed boolean return handling
 """
 
 import streamlit as st
@@ -54,25 +55,33 @@ def force_initialize_app():
         progress_bar.progress(40)
         status_text.text("🧠 Initializing Smart ML System...")
         
-        from smart_ml_init import smart_initialize
-        success = smart_initialize()
-        
-        progress_bar.progress(80)
-        status_text.text("✅ Initialization complete!")
-        
-        # Step 4: Final validation
-        progress_bar.progress(100)
-        time.sleep(1)
-        
-        if success:
-            st.success(f"🎉 **FORCE INITIALIZATION SUCCESSFUL!**")
-            st.success(f"📊 Smart ML system has been initialized!")
-            st.success(f"🧠 ML Models + Rule-based predictions ready!")
-        else:
-            st.error(f"❌ Smart ML initialization failed!")
+        try:
+            from smart_ml_init import smart_initialize
+            st.info("🔄 Starting smart_initialize()...")
+            success = smart_initialize()
+            st.info(f"✅ smart_initialize() returned: {success} (type: {type(success)})")
+            
+            progress_bar.progress(80)
+            status_text.text("✅ Initialization complete!")
+            
+            # Step 4: Final validation
+            progress_bar.progress(100)
+            time.sleep(1)
+            
+            if success:
+                st.success(f"🎉 **FORCE INITIALIZATION SUCCESSFUL!**")
+                st.success(f"📊 Smart ML system has been initialized!")
+                st.success(f"🧠 ML Models + Rule-based predictions ready!")
+                return True
+            else:
+                st.error(f"❌ Smart ML initialization failed!")
+                return False
+                
+        except Exception as e:
+            st.error(f"❌ Error in smart_initialize: {str(e)}")
+            import traceback
+            st.error(f"Traceback: {traceback.format_exc()}")
             return False
-        
-        return True
         
     except Exception as e:
         st.error(f"❌ **FORCE INITIALIZATION FAILED:**")
