@@ -515,10 +515,7 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # Initialize cache with force check for Streamlit Cloud
-    cache_loader = CacheLoader()
-    
-    # Check if initialization is needed
+    # Check if initialization is needed FIRST (before creating cache loader)
     cache_manifest_path = Path('model_cache/cache_manifest.json')
     needs_init = not cache_manifest_path.exists()
     
@@ -544,6 +541,9 @@ def main():
             except Exception as e2:
                 st.error(f"All initialization failed: {e2}")
                 st.stop()
+    
+    # Initialize cache AFTER ensuring cache exists
+    cache_loader = CacheLoader()
     
     # Cryptocurrency Selection Section
     st.markdown("""
