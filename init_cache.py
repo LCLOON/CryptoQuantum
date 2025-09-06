@@ -23,13 +23,10 @@ def initialize_cloud_cache():
     # Check if cache already exists
     loader = cache_loader.CacheLoader()
     
-    # Essential cryptocurrencies to train first (top 5)
+    # Essential cryptocurrencies to train first (top 2 for cloud efficiency)
     essential_cryptos = {
         '₿ BTC/USD': 'BTC-USD',
-        'Ξ ETH/USD': 'ETH-USD', 
-        'Ð DOGE/USD': 'DOGE-USD',
-        '◎ SOL/USD': 'SOL-USD',
-        '₳ ADA/USD': 'ADA-USD'
+        'Ξ ETH/USD': 'ETH-USD'
     }
     
     # Check how many essential cryptos are cached
@@ -38,10 +35,10 @@ def initialize_cloud_cache():
         if loader.is_cache_available(symbol):
             cached_essentials += 1
     
-    # If less than 3 essential cryptos are cached, initialize
-    if cached_essentials < 3:
+    # If less than 2 essential cryptos are cached, initialize
+    if cached_essentials < 2:
         st.info("🚀 Initializing CryptoQuantum cache for first time...")
-        st.info("⏳ Training essential cryptocurrency models (this may take 2-3 minutes)...")
+        st.info("⏳ Training essential cryptocurrency models (BTC & ETH - takes ~1 minute)...")
         
         # Create progress tracking
         progress_bar = st.progress(0)
@@ -73,15 +70,15 @@ def initialize_cloud_cache():
         progress_bar.empty()
         status_text.empty()
         
-        if completed >= 3:
-            st.success("🎉 CryptoQuantum is ready! Essential models trained successfully.")
+        if completed >= 2:
+            st.success("🎉 CryptoQuantum is ready! Essential models (BTC & ETH) trained successfully.")
             st.balloons()
             time.sleep(2)
             st.rerun()  # Refresh the app
         else:
             st.error("❌ Failed to initialize essential models. Please try refreshing the page.")
     
-    return cached_essentials >= 3 or completed >= 3
+    return cached_essentials >= 2 or completed >= 2
 
 if __name__ == "__main__":
     initialize_cloud_cache()
