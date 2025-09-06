@@ -521,19 +521,35 @@ def main():
     if 'initialization_complete' not in st.session_state:
         st.session_state.initialization_complete = False
     
-    if not st.session_state.initialization_complete and check_if_force_init_needed():
-        st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
-        st.info("This may take up to 90 seconds for full ML training...")
+    # FORCE DEBUG: Always show initialization status
+    st.info("🔍 **DEBUG: Checking initialization system...**")
+    
+    try:
+        init_needed = check_if_force_init_needed()
+        st.info(f"🔍 **DEBUG: Force init needed:** {init_needed}")
+        st.info(f"🔍 **DEBUG: Session complete:** {st.session_state.initialization_complete}")
         
-        if force_initialize_app():
-            st.session_state.initialization_complete = True
-            st.session_state.force_init_needed = False
-            st.success("✅ **INITIALIZATION COMPLETE!** Reloading app...")
-            time.sleep(2)
-            st.rerun()
+        if not st.session_state.initialization_complete and init_needed:
+            st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
+            st.info("This may take up to 90 seconds for full ML training...")
+            
+            if force_initialize_app():
+                st.session_state.initialization_complete = True
+                st.session_state.force_init_needed = False
+                st.success("✅ **INITIALIZATION COMPLETE!** Reloading app...")
+                time.sleep(2)
+                st.rerun()
+            else:
+                st.error("❌ **INITIALIZATION FAILED!** Please refresh the page.")
+                st.stop()
         else:
-            st.error("❌ **INITIALIZATION FAILED!** Please refresh the page.")
-            st.stop()
+            st.info(f"🔍 **DEBUG: Skipping init** - Complete: {st.session_state.initialization_complete}, Needed: {init_needed}")
+            
+    except Exception as e:
+        st.error(f"❌ **DEBUG: Initialization check failed:** {str(e)}")
+        import traceback
+        st.error(f"Traceback: {traceback.format_exc()}")
+        st.stop()
     
     # Initialize cache AFTER ensuring cache exists
     cache_loader = CacheLoader()
