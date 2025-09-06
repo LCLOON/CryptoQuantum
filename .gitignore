@@ -39,9 +39,13 @@ venv.bak/
 *~
 
 # Model Files (will be generated)
-*.pth
-*.pkl
-*.model
+# *.pth
+# *.pkl
+# *.model
+
+# Allow model_cache directory
+!model_cache/
+!model_cache/**
 
 # Logs
 *.log
@@ -105,9 +109,13 @@ dmypy.json
 *.code-workspace
 
 # PyTorch models and checkpoints
-*.pth
-*.pkl
-*.model
+# *.pth
+# *.pkl
+# *.model
+
+# Allow model_cache directory
+!model_cache/
+!model_cache/**
 
 # Training artifacts
 training_results.png
@@ -138,7 +146,11 @@ test_*.py
 debug_*.py
 
 # Data files
-data/
-*.csv
-*.json
-*.xlsx
+# data/
+# *.csv
+# *.json
+# *.xlsx
+
+# Allow model_cache directory
+!model_cache/
+!model_cache/**

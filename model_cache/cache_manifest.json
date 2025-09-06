@@ -1,0 +1,828 @@
+{
+  "created_date": "2025-09-06T15:49:35.792137",
+  "cache_version": "3.0",
+  "models": {
+    "BTC-USD": {
+      "model_type": "LSTM",
+      "file": "BTC-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ETH-USD": {
+      "model_type": "LSTM",
+      "file": "ETH-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "USDT-USD": {
+      "model_type": "LSTM",
+      "file": "USDT-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "BNB-USD": {
+      "model_type": "LSTM",
+      "file": "BNB-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "SOL-USD": {
+      "model_type": "LSTM",
+      "file": "SOL-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "USDC-USD": {
+      "model_type": "LSTM",
+      "file": "USDC-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "XRP-USD": {
+      "model_type": "LSTM",
+      "file": "XRP-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "DOGE-USD": {
+      "model_type": "LSTM",
+      "file": "DOGE-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "LUNC-USD": {
+      "model_type": "LSTM",
+      "file": "LUNC-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "ADA-USD": {
+      "model_type": "LSTM",
+      "file": "ADA-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "AVAX-USD": {
+      "model_type": "LSTM",
+      "file": "AVAX-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "SHIB-USD": {
+      "model_type": "LSTM",
+      "file": "SHIB-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "DOT-USD": {
+      "model_type": "LSTM",
+      "file": "DOT-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "LINK-USD": {
+      "model_type": "LSTM",
+      "file": "LINK-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "BCH-USD": {
+      "model_type": "LSTM",
+      "file": "BCH-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "TRX-USD": {
+      "model_type": "LSTM",
+      "file": "TRX-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "NEAR-USD": {
+      "model_type": "LSTM",
+      "file": "NEAR-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "LTC-USD": {
+      "model_type": "LSTM",
+      "file": "LTC-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ICP-USD": {
+      "model_type": "LSTM",
+      "file": "ICP-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "OP-USD": {
+      "model_type": "LSTM",
+      "file": "OP-USD_LSTM_model.pth",
+      "size_mb": 0.2222433090209961
+    },
+    "FTT-USD": {
+      "model_type": "LSTM",
+      "file": "FTT-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ETC-USD": {
+      "model_type": "LSTM",
+      "file": "ETC-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "XLM-USD": {
+      "model_type": "LSTM",
+      "file": "XLM-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ATOM-USD": {
+      "model_type": "LSTM",
+      "file": "ATOM-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "CRO-USD": {
+      "model_type": "LSTM",
+      "file": "CRO-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "APE-USD": {
+      "model_type": "LSTM",
+      "file": "APE-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ALGO-USD": {
+      "model_type": "LSTM",
+      "file": "ALGO-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "MANA-USD": {
+      "model_type": "LSTM",
+      "file": "MANA-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "AXS-USD": {
+      "model_type": "LSTM",
+      "file": "AXS-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "SAND-USD": {
+      "model_type": "LSTM",
+      "file": "SAND-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "VET-USD": {
+      "model_type": "LSTM",
+      "file": "VET-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "FIL-USD": {
+      "model_type": "LSTM",
+      "file": "FIL-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "FLOW-USD": {
+      "model_type": "LSTM",
+      "file": "FLOW-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "CHZ-USD": {
+      "model_type": "LSTM",
+      "file": "CHZ-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "RENDER-USD": {
+      "model_type": "LSTM",
+      "file": "RENDER-USD_LSTM_model.pth",
+      "size_mb": 0.22232723236083984
+    },
+    "THETA-USD": {
+      "model_type": "LSTM",
+      "file": "THETA-USD_LSTM_model.pth",
+      "size_mb": 0.2223062515258789
+    },
+    "ENJ-USD": {
+      "model_type": "LSTM",
+      "file": "ENJ-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "BAT-USD": {
+      "model_type": "LSTM",
+      "file": "BAT-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "CRV-USD": {
+      "model_type": "LSTM",
+      "file": "CRV-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "XTZ-USD": {
+      "model_type": "LSTM",
+      "file": "XTZ-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "MKR-USD": {
+      "model_type": "LSTM",
+      "file": "MKR-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "ARB-USD": {
+      "model_type": "LSTM",
+      "file": "ARB-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "SUSHI-USD": {
+      "model_type": "LSTM",
+      "file": "SUSHI-USD_LSTM_model.pth",
+      "size_mb": 0.2223062515258789
+    },
+    "YFI-USD": {
+      "model_type": "LSTM",
+      "file": "YFI-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "SNX-USD": {
+      "model_type": "LSTM",
+      "file": "SNX-USD_LSTM_model.pth",
+      "size_mb": 0.22226428985595703
+    },
+    "AAVE-USD": {
+      "model_type": "LSTM",
+      "file": "AAVE-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    },
+    "1INCH-USD": {
+      "model_type": "LSTM",
+      "file": "1INCH-USD_LSTM_model.pth",
+      "size_mb": 0.2223062515258789
+    },
+    "RUNE-USD": {
+      "model_type": "LSTM",
+      "file": "RUNE-USD_LSTM_model.pth",
+      "size_mb": 0.22228527069091797
+    }
+  },
+  "data": {
+    "BTC-USD": {
+      "file": "BTC-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ETH-USD": {
+      "file": "ETH-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "USDT-USD": {
+      "file": "USDT-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "BNB-USD": {
+      "file": "BNB-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "SOL-USD": {
+      "file": "SOL-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "USDC-USD": {
+      "file": "USDC-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "XRP-USD": {
+      "file": "XRP-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "DOGE-USD": {
+      "file": "DOGE-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "LUNC-USD": {
+      "file": "LUNC-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ADA-USD": {
+      "file": "ADA-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "AVAX-USD": {
+      "file": "AVAX-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "SHIB-USD": {
+      "file": "SHIB-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "DOT-USD": {
+      "file": "DOT-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "LINK-USD": {
+      "file": "LINK-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "BCH-USD": {
+      "file": "BCH-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "TRX-USD": {
+      "file": "TRX-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "NEAR-USD": {
+      "file": "NEAR-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "LTC-USD": {
+      "file": "LTC-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ICP-USD": {
+      "file": "ICP-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "OP-USD": {
+      "file": "OP-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "FTT-USD": {
+      "file": "FTT-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ETC-USD": {
+      "file": "ETC-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "XLM-USD": {
+      "file": "XLM-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ATOM-USD": {
+      "file": "ATOM-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "CRO-USD": {
+      "file": "CRO-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "APE-USD": {
+      "file": "APE-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ALGO-USD": {
+      "file": "ALGO-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "MANA-USD": {
+      "file": "MANA-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "AXS-USD": {
+      "file": "AXS-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "SAND-USD": {
+      "file": "SAND-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "VET-USD": {
+      "file": "VET-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "FIL-USD": {
+      "file": "FIL-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "FLOW-USD": {
+      "file": "FLOW-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "CHZ-USD": {
+      "file": "CHZ-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "RENDER-USD": {
+      "file": "RENDER-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "THETA-USD": {
+      "file": "THETA-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ENJ-USD": {
+      "file": "ENJ-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "BAT-USD": {
+      "file": "BAT-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "CRV-USD": {
+      "file": "CRV-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "XTZ-USD": {
+      "file": "XTZ-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "MKR-USD": {
+      "file": "MKR-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "ARB-USD": {
+      "file": "ARB-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "SUSHI-USD": {
+      "file": "SUSHI-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "YFI-USD": {
+      "file": "YFI-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "SNX-USD": {
+      "file": "SNX-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "AAVE-USD": {
+      "file": "AAVE-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "1INCH-USD": {
+      "file": "1INCH-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    },
+    "RUNE-USD": {
+      "file": "RUNE-USD_data.pkl",
+      "size_mb": 0.08526325225830078
+    }
+  },
+  "forecasts": {
+    "BTC-USD": {
+      "file": "BTC-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "ETH-USD": {
+      "file": "ETH-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "USDT-USD": {
+      "file": "USDT-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "BNB-USD": {
+      "file": "BNB-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "SOL-USD": {
+      "file": "SOL-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "USDC-USD": {
+      "file": "USDC-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "XRP-USD": {
+      "file": "XRP-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "DOGE-USD": {
+      "file": "DOGE-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "LUNC-USD": {
+      "file": "LUNC-USD_forecasts.json",
+      "size_mb": 0.0002765655517578125
+    },
+    "ADA-USD": {
+      "file": "ADA-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "AVAX-USD": {
+      "file": "AVAX-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "SHIB-USD": {
+      "file": "SHIB-USD_forecasts.json",
+      "size_mb": 0.000286102294921875
+    },
+    "DOT-USD": {
+      "file": "DOT-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "LINK-USD": {
+      "file": "LINK-USD_forecasts.json",
+      "size_mb": 0.00026702880859375
+    },
+    "BCH-USD": {
+      "file": "BCH-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "TRX-USD": {
+      "file": "TRX-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "NEAR-USD": {
+      "file": "NEAR-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "LTC-USD": {
+      "file": "LTC-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "ICP-USD": {
+      "file": "ICP-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "OP-USD": {
+      "file": "OP-USD_forecasts.json",
+      "size_mb": 0.00026988983154296875
+    },
+    "FTT-USD": {
+      "file": "FTT-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "ETC-USD": {
+      "file": "ETC-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "XLM-USD": {
+      "file": "XLM-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "ATOM-USD": {
+      "file": "ATOM-USD_forecasts.json",
+      "size_mb": 0.00026226043701171875
+    },
+    "CRO-USD": {
+      "file": "CRO-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "APE-USD": {
+      "file": "APE-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "ALGO-USD": {
+      "file": "ALGO-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "MANA-USD": {
+      "file": "MANA-USD_forecasts.json",
+      "size_mb": 0.0002765655517578125
+    },
+    "AXS-USD": {
+      "file": "AXS-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "SAND-USD": {
+      "file": "SAND-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "VET-USD": {
+      "file": "VET-USD_forecasts.json",
+      "size_mb": 0.0002803802490234375
+    },
+    "FIL-USD": {
+      "file": "FIL-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "FLOW-USD": {
+      "file": "FLOW-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "CHZ-USD": {
+      "file": "CHZ-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "RENDER-USD": {
+      "file": "RENDER-USD_forecasts.json",
+      "size_mb": 0.0002689361572265625
+    },
+    "THETA-USD": {
+      "file": "THETA-USD_forecasts.json",
+      "size_mb": 0.00026798248291015625
+    },
+    "ENJ-USD": {
+      "file": "ENJ-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "BAT-USD": {
+      "file": "BAT-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "CRV-USD": {
+      "file": "CRV-USD_forecasts.json",
+      "size_mb": 0.00027561187744140625
+    },
+    "XTZ-USD": {
+      "file": "XTZ-USD_forecasts.json",
+      "size_mb": 0.000270843505859375
+    },
+    "MKR-USD": {
+      "file": "MKR-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "ARB-USD": {
+      "file": "ARB-USD_forecasts.json",
+      "size_mb": 0.0002803802490234375
+    },
+    "SUSHI-USD": {
+      "file": "SUSHI-USD_forecasts.json",
+      "size_mb": 0.0002727508544921875
+    },
+    "YFI-USD": {
+      "file": "YFI-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "SNX-USD": {
+      "file": "SNX-USD_forecasts.json",
+      "size_mb": 0.00026607513427734375
+    },
+    "AAVE-USD": {
+      "file": "AAVE-USD_forecasts.json",
+      "size_mb": 0.00027179718017578125
+    },
+    "1INCH-USD": {
+      "file": "1INCH-USD_forecasts.json",
+      "size_mb": 0.00027751922607421875
+    },
+    "RUNE-USD": {
+      "file": "RUNE-USD_forecasts.json",
+      "size_mb": 0.00026702880859375
+    }
+  },
+  "scalers": {
+    "BTC-USD": {
+      "file": "BTC-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ETH-USD": {
+      "file": "ETH-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "USDT-USD": {
+      "file": "USDT-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "BNB-USD": {
+      "file": "BNB-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "SOL-USD": {
+      "file": "SOL-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "USDC-USD": {
+      "file": "USDC-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "XRP-USD": {
+      "file": "XRP-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "DOGE-USD": {
+      "file": "DOGE-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "LUNC-USD": {
+      "file": "LUNC-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ADA-USD": {
+      "file": "ADA-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "AVAX-USD": {
+      "file": "AVAX-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "SHIB-USD": {
+      "file": "SHIB-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "DOT-USD": {
+      "file": "DOT-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "LINK-USD": {
+      "file": "LINK-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "BCH-USD": {
+      "file": "BCH-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "TRX-USD": {
+      "file": "TRX-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "NEAR-USD": {
+      "file": "NEAR-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "LTC-USD": {
+      "file": "LTC-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ICP-USD": {
+      "file": "ICP-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "OP-USD": {
+      "file": "OP-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "FTT-USD": {
+      "file": "FTT-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ETC-USD": {
+      "file": "ETC-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "XLM-USD": {
+      "file": "XLM-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ATOM-USD": {
+      "file": "ATOM-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "CRO-USD": {
+      "file": "CRO-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "APE-USD": {
+      "file": "APE-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ALGO-USD": {
+      "file": "ALGO-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "MANA-USD": {
+      "file": "MANA-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "AXS-USD": {
+      "file": "AXS-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "SAND-USD": {
+      "file": "SAND-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "VET-USD": {
+      "file": "VET-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "FIL-USD": {
+      "file": "FIL-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "FLOW-USD": {
+      "file": "FLOW-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "CHZ-USD": {
+      "file": "CHZ-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "RENDER-USD": {
+      "file": "RENDER-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "THETA-USD": {
+      "file": "THETA-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ENJ-USD": {
+      "file": "ENJ-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "BAT-USD": {
+      "file": "BAT-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "CRV-USD": {
+      "file": "CRV-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "XTZ-USD": {
+      "file": "XTZ-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "MKR-USD": {
+      "file": "MKR-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "ARB-USD": {
+      "file": "ARB-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "SUSHI-USD": {
+      "file": "SUSHI-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "YFI-USD": {
+      "file": "YFI-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "SNX-USD": {
+      "file": "SNX-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "AAVE-USD": {
+      "file": "AAVE-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "1INCH-USD": {
+      "file": "1INCH-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    },
+    "RUNE-USD": {
+      "file": "RUNE-USD_scaler.pkl",
+      "size_mb": 0.0004978179931640625
+    }
+  }
+}
