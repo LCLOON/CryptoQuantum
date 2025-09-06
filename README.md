@@ -39,18 +39,22 @@ cd CryptoQuantum
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the mobile-optimized app
-streamlit run mobile_crypto_app.py --server.port 8501
+# Run the main mobile-optimized app
+streamlit run app.py --server.port 8501
 ```
 
 #### **Alternative Apps**
 ```bash
-# Original desktop app
+# Entry point (redirects to main app)
 streamlit run stunning_crypto_app.py --server.port 8502
 
-# Simple crypto app
-streamlit run simple_crypto_app.py --server.port 8503
+# Or run the main app directly
+streamlit run app.py --server.port 8503
 ```
+
+#### **🌐 Live Demo**
+**Visit the deployed app:** [CryptoQuantum Live](https://cryptoquantum-97miqusi5szhryo2doqqyc.streamlit.app)  
+*Professional mobile crypto trading platform - no installation required!*
 
 ### 📋 **Requirements**
 
