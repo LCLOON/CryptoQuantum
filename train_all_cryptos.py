@@ -217,11 +217,14 @@ class CompleteCacheGenerator:
             with open(scaler_path, 'wb') as f:
                 pickle.dump(scaler, f)
             
-            # 5. Save training data
+            # 5. Save training data  
             data_file = f"{symbol}_data.pkl"
             data_path = self.cache_dir / 'data' / data_file
             with open(data_path, 'wb') as f:
                 pickle.dump({'X': X, 'y': y}, f)
+            
+            # 5b. Save historical data for app usage
+            self.save_historical_data(symbol)
             
             # 6. Generate and save forecasts
             last_sequence = X[-1].flatten()
@@ -267,6 +270,74 @@ class CompleteCacheGenerator:
         except Exception as e:
             logger.error(f"❌ Error caching {symbol}: {e}")
             return False
+    
+    def save_historical_data(self, symbol):
+        """Save historical data in the format expected by the app"""
+        try:
+            logger.info(f"💾 Saving historical data for {symbol}")
+            
+            # Download fresh historical data with technical indicators
+            end_date = datetime.now()
+            start_date = end_date - timedelta(days=730)  # 2 years
+            
+            ticker = yf.Ticker(symbol)
+            hist = ticker.history(start=start_date, end=end_date)
+            
+            if hist.empty:
+                logger.warning(f"❌ No historical data for {symbol}")
+                return False
+            
+            # Add technical indicators
+            hist = self.add_technical_indicators(hist)
+            
+            # Save as pickle (DataFrame format that app expects)
+            data_file = self.cache_dir / 'data' / f'{symbol}_historical.pkl'
+            hist.to_pickle(data_file)
+            
+            # Also overwrite the main data file with historical data for app compatibility
+            main_data_file = self.cache_dir / 'data' / f'{symbol}_data.pkl'
+            hist.to_pickle(main_data_file)
+            
+            # Save as JSON for web compatibility
+            data_json_file = self.cache_dir / 'data' / f'{symbol}_data.json'
+            hist_json = hist.reset_index()
+            hist_json['Date'] = hist_json['Date'].dt.strftime('%Y-%m-%d')
+            hist_json.to_json(data_json_file, orient='records')
+            
+            logger.info(f"✅ Saved {len(hist)} days of historical data for {symbol}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"❌ Error saving historical data for {symbol}: {e}")
+            return False
+    
+    def add_technical_indicators(self, df):
+        """Add technical indicators to the dataframe"""
+        try:
+            # Moving averages
+            df['SMA_20'] = df['Close'].rolling(window=20).mean()
+            df['SMA_50'] = df['Close'].rolling(window=50).mean()
+            
+            # RSI (simplified)
+            delta = df['Close'].diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+            rs = gain / loss
+            df['RSI'] = 100 - (100 / (1 + rs))
+            
+            # Bollinger Bands
+            df['BB_Middle'] = df['Close'].rolling(window=20).mean()
+            bb_std = df['Close'].rolling(window=20).std()
+            df['BB_Upper'] = df['BB_Middle'] + (bb_std * 2)
+            df['BB_Lower'] = df['BB_Middle'] - (bb_std * 2)
+            
+            # Volume indicator
+            df['Volume_SMA'] = df['Volume'].rolling(window=20).mean()
+            
+            return df
+        except Exception as e:
+            logger.error(f"Error adding technical indicators: {e}")
+            return df
     
     def generate_complete_cache(self):
         """Generate complete cache for all cryptocurrencies"""
