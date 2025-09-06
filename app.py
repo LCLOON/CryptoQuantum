@@ -522,14 +522,16 @@ def main():
         st.session_state.initialization_complete = False
     
     # FORCE DEBUG: Always show initialization status
-    st.info("🔍 **DEBUG: Checking initialization system...**")
+    print("🔍 **DEBUG: Checking initialization system...**")  # This will show in Streamlit logs
     
     try:
         init_needed = check_if_force_init_needed()
+        print(f"🔍 **DEBUG: Force init needed:** {init_needed}")  # This will show in Streamlit logs
         st.info(f"🔍 **DEBUG: Force init needed:** {init_needed}")
         st.info(f"🔍 **DEBUG: Session complete:** {st.session_state.initialization_complete}")
         
         if not st.session_state.initialization_complete and init_needed:
+            print("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")  # This will show in Streamlit logs
             st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
             st.info("This may take up to 90 seconds for full ML training...")
             
@@ -543,9 +545,11 @@ def main():
                 st.error("❌ **INITIALIZATION FAILED!** Please refresh the page.")
                 st.stop()
         else:
+            print(f"🔍 **DEBUG: Skipping init** - Complete: {st.session_state.initialization_complete}, Needed: {init_needed}")  # This will show in Streamlit logs
             st.info(f"🔍 **DEBUG: Skipping init** - Complete: {st.session_state.initialization_complete}, Needed: {init_needed}")
             
     except Exception as e:
+        print(f"❌ **DEBUG: Initialization check failed:** {str(e)}")  # This will show in Streamlit logs
         st.error(f"❌ **DEBUG: Initialization check failed:** {str(e)}")
         import traceback
         st.error(f"Traceback: {traceback.format_exc()}")
