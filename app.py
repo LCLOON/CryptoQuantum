@@ -10,6 +10,8 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
+from pathlib import Path
+import time
 from config import CRYPTO_SYMBOLS
 from market_data import get_crypto_info
 from cache_loader import CacheLoader
@@ -513,17 +515,35 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # Initialize cache
+    # Initialize cache with force check for Streamlit Cloud
     cache_loader = CacheLoader()
     
-    # Smart ML auto-initialization for Streamlit Cloud
-    try:
-        from smart_ml_init import smart_initialize
-        smart_initialize()
-    except Exception as e:
-        st.warning(f"Smart ML failed ({e}), falling back to lightweight...")
-        from lightweight_init import lightweight_initialize
-        lightweight_initialize()
+    # Check if initialization is needed
+    cache_manifest_path = Path('model_cache/cache_manifest.json')
+    needs_init = not cache_manifest_path.exists()
+    
+    # Force Smart ML initialization on Streamlit Cloud if needed
+    if needs_init:
+        st.info("🚀 First-time initialization - Setting up CryptoQuantum...")
+        try:
+            from smart_ml_init import smart_initialize
+            success = smart_initialize()
+            if success:
+                st.success("✅ Smart ML system initialized!")
+                time.sleep(2)  # Brief pause before reload
+                st.rerun()
+        except Exception as e:
+            st.warning(f"Smart ML failed ({e}), using lightweight system...")
+            try:
+                from lightweight_init import lightweight_initialize
+                success = lightweight_initialize()
+                if success:
+                    st.success("✅ Lightweight system initialized!")
+                    time.sleep(2)
+                    st.rerun()
+            except Exception as e2:
+                st.error(f"All initialization failed: {e2}")
+                st.stop()
     
     # Cryptocurrency Selection Section
     st.markdown("""

@@ -14,7 +14,7 @@ CRYPTO_SYMBOLS = {
     '🔵 USDC/USD': 'USDC-USD',
     '✖️ XRP/USD': 'XRP-USD',
     'Ð DOGE/USD': 'DOGE-USD',
-    '🌕 LUNA/USD': 'LUNA-USD',
+    '🌕 LUNC/USD': 'LUNC-USD',  # Luna Classic (instead of delisted LUNA)
     '₳ ADA/USD': 'ADA-USD',
     '🔺 AVAX/USD': 'AVAX-USD',
     '💎 SHIB/USD': 'SHIB-USD',
@@ -23,11 +23,11 @@ CRYPTO_SYMBOLS = {
     '🔴 BCH/USD': 'BCH-USD',
     '🌪️ TRX/USD': 'TRX-USD',
     '🔰 NEAR/USD': 'NEAR-USD',
-    '⬢ MATIC/USD': 'MATIC-USD',
+    '⬢ POL/USD': 'POL-USD',  # Polygon (formerly MATIC)
     'Ł LTC/USD': 'LTC-USD',
     '💰 LTC/USD': 'LTC-USD',
     '🚀 ICP/USD': 'ICP-USD',
-    '⚡ APT/USD': 'APT-USD',
+    '⚡ OP/USD': 'OP-USD',  # Optimism (instead of APT)
     '📈 FTT/USD': 'FTT-USD',
     '🌟 ETC/USD': 'ETC-USD',
     '🔸 XLM/USD': 'XLM-USD',
@@ -42,14 +42,14 @@ CRYPTO_SYMBOLS = {
     '🔗 FIL/USD': 'FIL-USD',
     '🌈 FLOW/USD': 'FLOW-USD',
     '🎨 CHZ/USD': 'CHZ-USD',
-    '💎 GRT/USD': 'GRT-USD',
+    '💎 RENDER/USD': 'RENDER-USD',  # Render Token (instead of problematic GRT)
     '🌍 THETA/USD': 'THETA-USD',
     '⚙️ ENJ/USD': 'ENJ-USD',
     '📱 BAT/USD': 'BAT-USD',
     '🔮 CRV/USD': 'CRV-USD',
     '⭐ XTZ/USD': 'XTZ-USD',
     '🏛️ MKR/USD': 'MKR-USD',
-    '📊 COMP/USD': 'COMP-USD',
+    '📊 ARB/USD': 'ARB-USD',  # Arbitrum (instead of problematic COMP)
     '🎪 SUSHI/USD': 'SUSHI-USD',
     '🔋 YFI/USD': 'YFI-USD',
     '🌟 SNX/USD': 'SNX-USD',
