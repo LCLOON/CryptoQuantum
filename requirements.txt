@@ -16,6 +16,9 @@ numpy>=1.24.0
 pandas>=2.0.0
 scipy>=1.11.0
 
+# Progress Tracking
+tqdm>=4.65.0
+
 # Financial Data
 yfinance>=0.2.18
 
