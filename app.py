@@ -15,6 +15,7 @@ import time
 from config import CRYPTO_SYMBOLS
 from market_data import get_crypto_info
 from cache_loader import CacheLoader
+from force_init import check_if_force_init_needed, force_initialize_app, display_force_init_button
 
 def load_mobile_css():
     """Load enhanced mobile-optimized CSS styling"""
@@ -516,31 +517,17 @@ def main():
     """, unsafe_allow_html=True)
     
     # Check if initialization is needed FIRST (before creating cache loader)
-    cache_manifest_path = Path('model_cache/cache_manifest.json')
-    needs_init = not cache_manifest_path.exists()
-    
-    # Force Smart ML initialization on Streamlit Cloud if needed
-    if needs_init:
-        st.info("🚀 First-time initialization - Setting up CryptoQuantum...")
-        try:
-            from smart_ml_init import smart_initialize
-            success = smart_initialize()
-            if success:
-                st.success("✅ Smart ML system initialized!")
-                time.sleep(2)  # Brief pause before reload
-                st.rerun()
-        except Exception as e:
-            st.warning(f"Smart ML failed ({e}), using lightweight system...")
-            try:
-                from lightweight_init import lightweight_initialize
-                success = lightweight_initialize()
-                if success:
-                    st.success("✅ Lightweight system initialized!")
-                    time.sleep(2)
-                    st.rerun()
-            except Exception as e2:
-                st.error(f"All initialization failed: {e2}")
-                st.stop()
+    if check_if_force_init_needed():
+        st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
+        st.info("This may take up to 90 seconds for full ML training...")
+        
+        if force_initialize_app():
+            st.success("✅ **INITIALIZATION COMPLETE!** Reloading app...")
+            time.sleep(2)
+            st.rerun()
+        else:
+            st.error("❌ **INITIALIZATION FAILED!** Please refresh the page.")
+            st.stop()
     
     # Initialize cache AFTER ensuring cache exists
     cache_loader = CacheLoader()
@@ -1146,3 +1133,9 @@ def validate_prediction(pred_price, current_price, days, symbol):
 
 if __name__ == "__main__":
     main()
+    
+    # Add debug tools to sidebar (only show after main app loads)
+    try:
+        display_force_init_button()
+    except Exception as e:
+        st.sidebar.error(f"Debug tools error: {str(e)}")
