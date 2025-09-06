@@ -54,8 +54,8 @@ def force_initialize_app():
         progress_bar.progress(40)
         status_text.text("🧠 Initializing Smart ML System...")
         
-        from smart_ml_init import smart_ml_initialize
-        result = smart_ml_initialize()
+        from smart_ml_init import smart_initialize
+        result = smart_initialize()
         
         progress_bar.progress(80)
         status_text.text("✅ Initialization complete!")

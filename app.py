@@ -521,13 +521,7 @@ def main():
     if 'initialization_complete' not in st.session_state:
         st.session_state.initialization_complete = False
     
-    # DEBUG: Add some logging
-    st.write("🔍 **DEBUG:** Checking initialization status...")
-    init_needed = check_if_force_init_needed()
-    st.write(f"🔍 **DEBUG:** Force init needed: {init_needed}")
-    st.write(f"🔍 **DEBUG:** Initialization complete: {st.session_state.initialization_complete}")
-    
-    if not st.session_state.initialization_complete and init_needed:
+    if not st.session_state.initialization_complete and check_if_force_init_needed():
         st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
         st.info("This may take up to 90 seconds for full ML training...")
         
