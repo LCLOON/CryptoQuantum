@@ -516,6 +516,10 @@ def main():
     # Initialize cache
     cache_loader = CacheLoader()
     
+    # Auto-initialize essential models for Streamlit Cloud
+    from init_cache import initialize_cloud_cache
+    initialize_cloud_cache()
+    
     # Cryptocurrency Selection Section
     st.markdown("""
     <div class="crypto-selection-card">
