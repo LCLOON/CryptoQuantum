@@ -39,8 +39,12 @@ class CacheLoader:
         self.cache_dir = Path(cache_dir)
         self.manifest = self.load_manifest()
         
-        if self.manifest:
-            logger.info(f"✅ Cache loaded: {len(self.manifest.get('models', {}))} models available")
+        # Count available forecasts (lightweight models)
+        available_symbols = self.get_available_symbols()
+        forecast_count = len(available_symbols)
+        
+        if forecast_count > 0:
+            logger.info(f"✅ Cache loaded: {forecast_count} models available")
         else:
             logger.warning("⚠️ No cache manifest found - falling back to live training")
     

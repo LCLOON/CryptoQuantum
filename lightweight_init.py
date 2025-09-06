@@ -29,15 +29,18 @@ def create_simple_forecasts(symbol, current_price):
     elif symbol in ['ETH-USD']:
         # Ethereum - Higher growth potential
         factors = {'30_days': 1.12, '90_days': 1.25, '180_days': 1.45, '365_days': 1.80, '730_days': 2.80}
+    elif symbol in ['DOGE-USD']:
+        # DOGECOIN - Optimistic but realistic meme coin potential 🐕
+        factors = {'30_days': 1.25, '90_days': 1.45, '180_days': 1.75, '365_days': 2.20, '730_days': 3.50}
     elif symbol in ['SOL-USD', 'AVAX-USD', 'MATIC-USD', 'DOT-USD', 'ATOM-USD']:
         # Layer 1 protocols - High growth
         factors = {'30_days': 1.15, '90_days': 1.30, '180_days': 1.55, '365_days': 2.00, '730_days': 3.50}
     elif symbol in ['ADA-USD', 'XRP-USD', 'ALGO-USD', 'HBAR-USD', 'VET-USD']:
         # Established altcoins
         factors = {'30_days': 1.10, '90_days': 1.22, '180_days': 1.40, '365_days': 1.75, '730_days': 2.60}
-    elif symbol in ['DOGE-USD', 'SHIB-USD', 'PEPE-USD']:
-        # Meme coins - Extreme potential
-        factors = {'30_days': 1.20, '90_days': 1.45, '180_days': 1.80, '365_days': 2.50, '730_days': 5.00}
+    elif symbol in ['SHIB-USD', 'PEPE-USD']:
+        # Other meme coins - EXTREME potential for viral growth!
+        factors = {'30_days': 1.40, '90_days': 1.85, '180_days': 2.80, '365_days': 5.00, '730_days': 12.00}
     elif symbol in ['LINK-USD', 'UNI-USD', 'AAVE-USD', 'CRV-USD', 'SUSHI-USD']:
         # DeFi tokens - High growth
         factors = {'30_days': 1.18, '90_days': 1.35, '180_days': 1.65, '365_days': 2.20, '730_days': 4.00}
@@ -51,10 +54,16 @@ def create_simple_forecasts(symbol, current_price):
         # Default optimistic growth for other cryptos
         factors = {'30_days': 1.12, '90_days': 1.25, '180_days': 1.45, '365_days': 1.80, '730_days': 2.80}
     
-    # Add optimistic randomness (+2% to +8% boost)
+    # Add optimistic randomness with moderate boost for meme coins
     forecasts = {}
     for timeframe, factor in factors.items():
-        optimistic_boost = np.random.uniform(1.02, 1.08)  # Always positive
+        if symbol in ['DOGE-USD', 'SHIB-USD', 'PEPE-USD']:
+            # Moderate optimistic boost for meme coins - still bullish but realistic
+            optimistic_boost = np.random.uniform(1.03, 1.10)  # 3-10% extra boost
+        else:
+            # Regular optimistic boost
+            optimistic_boost = np.random.uniform(1.02, 1.08)  # 2-8% boost
+        
         predicted_price = current_price * factor * optimistic_boost
         forecasts[timeframe] = float(predicted_price)
     

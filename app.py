@@ -516,9 +516,14 @@ def main():
     # Initialize cache
     cache_loader = CacheLoader()
     
-    # Lightweight auto-initialization for Streamlit Cloud
-    from lightweight_init import lightweight_initialize
-    lightweight_initialize()
+    # Smart ML auto-initialization for Streamlit Cloud
+    try:
+        from smart_ml_init import smart_initialize
+        smart_initialize()
+    except Exception as e:
+        st.warning(f"Smart ML failed ({e}), falling back to lightweight...")
+        from lightweight_init import lightweight_initialize
+        lightweight_initialize()
     
     # Cryptocurrency Selection Section
     st.markdown("""
