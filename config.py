@@ -1,5 +1,6 @@
 """
-CryptoQuantum Configuration File
+CryptoQuantum Config    'Ł LTC/USD': 'LTC-USD',
+    '🚀 ICP/USD': 'ICP-USD',tion File
 Contains all configuration constants and settings
 """
 
@@ -24,7 +25,7 @@ CRYPTO_SYMBOLS = {
     '🔰 NEAR/USD': 'NEAR-USD',
     '⬢ MATIC/USD': 'MATIC-USD',
     'Ł LTC/USD': 'LTC-USD',
-    '💰 UNI/USD': 'UNI-USD',
+    '💰 LTC/USD': 'LTC-USD',
     '🚀 ICP/USD': 'ICP-USD',
     '⚡ APT/USD': 'APT-USD',
     '📈 FTT/USD': 'FTT-USD',

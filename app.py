@@ -516,9 +516,9 @@ def main():
     # Initialize cache
     cache_loader = CacheLoader()
     
-    # Auto-initialize essential models for Streamlit Cloud
-    from init_cache import initialize_cloud_cache
-    initialize_cloud_cache()
+    # Lightweight auto-initialization for Streamlit Cloud
+    from lightweight_init import lightweight_initialize
+    lightweight_initialize()
     
     # Cryptocurrency Selection Section
     st.markdown("""
@@ -733,8 +733,8 @@ def main():
                             start_date_1y = end_date - timedelta(days=365)  # 1 year
                             
                             # Download 6-month data for main chart
-                            hist_data_6m = yf.download(symbol, start=start_date_6m, end=end_date)
-                            hist_data_1y = yf.download(symbol, start=start_date_1y, end=end_date)
+                            hist_data_6m = yf.download(symbol, start=start_date_6m, end=end_date, auto_adjust=True, progress=False)
+                            hist_data_1y = yf.download(symbol, start=start_date_1y, end=end_date, auto_adjust=True, progress=False)
                             
                             # Fix multi-level column index if present
                             if isinstance(hist_data_6m.columns, pd.MultiIndex):
