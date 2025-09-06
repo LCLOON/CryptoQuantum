@@ -55,7 +55,7 @@ def force_initialize_app():
         status_text.text("🧠 Initializing Smart ML System...")
         
         from smart_ml_init import smart_initialize
-        result = smart_initialize()
+        success = smart_initialize()
         
         progress_bar.progress(80)
         status_text.text("✅ Initialization complete!")
@@ -64,10 +64,13 @@ def force_initialize_app():
         progress_bar.progress(100)
         time.sleep(1)
         
-        st.success(f"🎉 **FORCE INITIALIZATION SUCCESSFUL!**")
-        st.success(f"📊 Trained Models: {len(result.get('ml_trained', []))}")
-        st.success(f"📈 Rule-based Models: {len(result.get('rule_based', []))}")
-        st.success(f"⏱️ Total Time: {result.get('total_time', 'Unknown')}")
+        if success:
+            st.success(f"🎉 **FORCE INITIALIZATION SUCCESSFUL!**")
+            st.success(f"📊 Smart ML system has been initialized!")
+            st.success(f"🧠 ML Models + Rule-based predictions ready!")
+        else:
+            st.error(f"❌ Smart ML initialization failed!")
+            return False
         
         return True
         
