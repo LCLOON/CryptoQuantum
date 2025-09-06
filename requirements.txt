@@ -1,51 +1,24 @@
-# CryptoQuantum Terminal - Enhanced Requirements with Caching Support
-# ================================================================
+# CryptoQuantum Mobile - Streamlit Cloud Dependencies
+# ===================================================
 
 # Core Framework
 streamlit>=1.32.0
 
-# Machine Learning & AI (Core)
-torch>=2.0.0
-scikit-learn>=1.3.0
-xgboost>=1.7.0
+# Machine Learning & AI (compatible versions)
+torch>=2.0.0,<2.5.0
+scikit-learn>=1.3.0,<1.6.0
+xgboost>=1.7.0,<3.0.0
 joblib>=1.3.0
 
 # Data Processing
-numpy>=1.24.0
-pandas>=2.0.0
-scipy>=1.11.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<2.3.0
+scipy>=1.11.0,<1.15.0
 
 # Financial Data
 yfinance>=0.2.18
-requests>=2.31.0
 
 # Visualization
 plotly>=5.15.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
-
-# Caching & Performance
-pickle5>=0.0.12
-h5py>=3.9.0
-tqdm>=4.65.0
-
-# Time & Scheduling
-pytz>=2023.3
-APScheduler>=3.10.0
-
-# Async Operations
-aiohttp>=3.8.0
-
-# Technical Analysis (Optional - uncomment if needed)
-# TA-Lib>=0.4.25
-# pandas-ta>=0.3.14b
-
-# Advanced Dependencies (Optional)
-# transformers>=4.30.0      # For advanced AI models
-# accelerate>=0.20.0        # For GPU acceleration
-# datasets>=2.12.0          # For ML datasets
-# alpha-vantage>=2.3.1      # Alternative data source
-# ccxt>=4.0.0               # Crypto exchange data
-# statsmodels>=0.14.0       # Statistical modeling
-# prophet>=1.1.4            # Time series forecasting
-# lightgbm>=4.0.0           # Light gradient boosting
