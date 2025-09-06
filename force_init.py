@@ -79,9 +79,14 @@ def force_initialize_app():
 
 def check_if_force_init_needed():
     """
-    Check if force initialization is required
+    Check if force initialization is required - Streamlit Cloud compatible
     """
     try:
+        # Check 1: Session state override
+        if hasattr(st, 'session_state') and getattr(st.session_state, 'force_init_needed', True):
+            return True
+        
+        # Check 2: Cache directory and manifest
         cache_dir = Path("model_cache")
         manifest_file = cache_dir / "cache_manifest.json"
         
@@ -89,17 +94,23 @@ def check_if_force_init_needed():
         if not cache_dir.exists() or not manifest_file.exists():
             return True
             
-        # If manifest exists but is empty, force init needed
+        # Check 3: If manifest exists but is empty, force init needed
         with open(manifest_file, 'r') as f:
             manifest = json.load(f)
             
         if not manifest.get('models') and not manifest.get('forecasts'):
             return True
+        
+        # Check 4: Force init flag in manifest
+        if manifest.get('force_initialized') != True:
+            return True
             
         return False
         
-    except Exception:
-        return True  # If any error, force init needed
+    except Exception as e:
+        # If any error occurs, force init is needed
+        print(f"Force init check error: {e}")
+        return True
 
 def display_force_init_button():
     """

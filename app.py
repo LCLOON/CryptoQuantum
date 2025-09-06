@@ -517,11 +517,23 @@ def main():
     """, unsafe_allow_html=True)
     
     # Check if initialization is needed FIRST (before creating cache loader)
-    if check_if_force_init_needed():
+    # Use session state to prevent repeated initialization attempts
+    if 'initialization_complete' not in st.session_state:
+        st.session_state.initialization_complete = False
+    
+    # DEBUG: Add some logging
+    st.write("🔍 **DEBUG:** Checking initialization status...")
+    init_needed = check_if_force_init_needed()
+    st.write(f"🔍 **DEBUG:** Force init needed: {init_needed}")
+    st.write(f"🔍 **DEBUG:** Initialization complete: {st.session_state.initialization_complete}")
+    
+    if not st.session_state.initialization_complete and init_needed:
         st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
         st.info("This may take up to 90 seconds for full ML training...")
         
         if force_initialize_app():
+            st.session_state.initialization_complete = True
+            st.session_state.force_init_needed = False
             st.success("✅ **INITIALIZATION COMPLETE!** Reloading app...")
             time.sleep(2)
             st.rerun()
