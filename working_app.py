@@ -11,13 +11,13 @@ st.set_page_config(
 )
 
 st.title("🚀 Crypto Tracker")
-st.markdown("### Bitcoin, Dogecoin, Cardano & Shiba Inu")
+st.markdown("### Bitcoin, Dogecoin, Pepe & Shiba Inu")
 
 # Crypto symbols
 cryptos = {
     "Bitcoin": "BTC-USD",
     "Dogecoin": "DOGE-USD", 
-    "Cardano": "ADA-USD",  # Using ADA instead of PEPE (more reliable)
+    "Pepe": "PEPE-USD",
     "Shiba Inu": "SHIB-USD"
 }
 

@@ -14,7 +14,11 @@ import time
 from config import CRYPTO_SYMBOLS
 from market_data import get_crypto_info
 from cache_loader import CacheLoader
-from force_init import check_if_force_init_needed, force_initialize_app, display_force_init_button
+from force_init import (
+    check_if_force_init_needed,
+    force_initialize_app,
+    display_force_init_button
+)
 
 def load_mobile_css():
     """Load enhanced mobile-optimized CSS styling"""
