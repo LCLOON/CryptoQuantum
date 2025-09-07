@@ -44,7 +44,7 @@ from tqdm import tqdm
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from config import CRYPTO_SYMBOLS
-from ai_models import LSTMModel
+from ai_models import AttentionLSTMModel
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -129,7 +129,7 @@ class CompleteCacheGenerator:
             logger.info(f"🧠 Training model for {symbol}")
             
             # Create model
-            model = LSTMModel(input_size=1, hidden_size=64, num_layers=2)
+            model = AttentionLSTMModel(input_size=1, hidden_size=64, num_layers=2)
             
             # Convert to PyTorch tensors
             X_tensor = torch.FloatTensor(X)

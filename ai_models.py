@@ -10,10 +10,10 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 from datetime import datetime
 
-class LSTMModel(nn.Module):
+class AttentionLSTMModel(nn.Module):
     """Enhanced LSTM Model with attention mechanism"""
     def __init__(self, input_size, hidden_size=128, num_layers=3, dropout=0.2):
-        super(LSTMModel, self).__init__()
+        super(AttentionLSTMModel, self).__init__()
         self.hidden_size = hidden_size
         self.num_layers = num_layers
         
@@ -126,7 +126,7 @@ def train_advanced_model(df, symbol_name, ai_model_choice="AttentionLSTM (Recomm
         
         # Model parameters
         input_size = X_train.shape[2]
-        model = LSTMModel(input_size=input_size, hidden_size=128, num_layers=3, dropout=0.2)
+        model = AttentionLSTMModel(input_size=input_size, hidden_size=128, num_layers=3, dropout=0.2)
         
         # Training parameters
         criterion = nn.MSELoss()
