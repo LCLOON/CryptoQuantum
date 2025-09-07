@@ -2,63 +2,76 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
+from datetime import datetime, timedelta
 
 # Page config
 st.set_page_config(
     page_title="Crypto Tracker",
     page_icon="🚀",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
-st.title("🚀 Crypto Tracker")
-st.markdown("### Bitcoin, Dogecoin, Cardano & Shiba Inu")
+# Custom CSS
+st.markdown("""
+<style>
+.main > div { padding: 1rem; }
+.stMetric { background-color: #1e1e1e; padding: 10px; border-radius: 10px; margin: 5px 0; }
+</style>
+""", unsafe_allow_html=True)
 
 # Crypto symbols
-cryptos = {
+CRYPTOS = {
     "Bitcoin": "BTC-USD",
     "Dogecoin": "DOGE-USD", 
-    "Cardano": "ADA-USD",  # Using ADA instead of PEPE (more reliable)
+    "Pepe": "PEPE-USD",
     "Shiba Inu": "SHIB-USD"
 }
 
-# Time period
-period = st.selectbox("Select Period", ["1d", "7d", "30d", "90d", "1y"], index=1)
+def get_crypto_data(symbol, period="1d"):
+    try:
+        ticker = yf.Ticker(symbol)
+        data = ticker.history(period=period)
+        info = ticker.info
+        return data, info
+    except Exception as e:
+        st.error(f"Error fetching data for {symbol}: {e}")
+        return None, None
 
-# Display cryptos
-cols = st.columns(2)
+def format_price(price):
+    if price < 0.001:
+        return f"${price:.8f}"
+    elif price < 1:
+        return f"${price:.6f}"
+    else:
+        return f"${price:,.2f}"
 
-for idx, (name, symbol) in enumerate(cryptos.items()):
-    col = cols[idx % 2]
+def main():
+    st.title("🚀 Crypto Tracker")
+    st.markdown("### Track Bitcoin, Dogecoin, Pepe & Shiba Inu")
     
-    with col:
-        st.subheader(name)
+    period = st.selectbox("Select Time Period", ["1d", "7d", "30d", "90d", "1y"], index=1)
+    
+    cols = st.columns(2)
+    
+    for idx, (name, symbol) in enumerate(CRYPTOS.items()):
+        col = cols[idx % 2]
         
-        try:
-            # Get data
-            ticker = yf.Ticker(symbol)
-            data = ticker.history(period=period)
+        with col:
+            st.markdown(f"### {name}")
+            data, info = get_crypto_data(symbol, period)
             
-            if not data.empty:
+            if data is not None and not data.empty:
                 current_price = data["Close"].iloc[-1]
-                prev_price = data["Close"].iloc[0]
-                change_pct = ((current_price - prev_price) / prev_price) * 100
+                prev_close = data["Close"].iloc[0] if len(data) > 1 else current_price
+                change_pct = ((current_price - prev_close) / prev_close) * 100
                 
-                # Format price
-                if current_price < 0.001:
-                    price_str = f"${current_price:.8f}"
-                elif current_price < 1:
-                    price_str = f"${current_price:.6f}"
-                else:
-                    price_str = f"${current_price:,.2f}"
-                
-                # Display metrics
                 st.metric(
                     label="Current Price",
-                    value=price_str,
+                    value=format_price(current_price),
                     delta=f"{change_pct:.2f}%"
                 )
                 
-                # Create chart
                 fig = go.Figure()
                 fig.add_trace(go.Scatter(
                     x=data.index,
@@ -69,21 +82,18 @@ for idx, (name, symbol) in enumerate(cryptos.items()):
                 ))
                 
                 fig.update_layout(
-                    title=f"{name} Price",
+                    title=f"{name} Price Chart",
                     height=300,
-                    showlegend=False,
-                    xaxis_title="Date",
-                    yaxis_title="Price (USD)"
+                    showlegend=False
                 )
                 
                 st.plotly_chart(fig, use_container_width=True)
-                
             else:
-                st.error(f"No data available for {name}")
-                
-        except Exception as e:
-            st.error(f"Error loading {name}: {e}")
-        
-        st.markdown("---")
+                st.error(f"Could not load data for {name}")
+            
+            st.markdown("---")
+    
+    st.markdown("🚀 Built with Streamlit | Data from Yahoo Finance")
 
-st.markdown("**🚀 Powered by Streamlit & Yahoo Finance**")
+if __name__ == "__main__":
+    main()
