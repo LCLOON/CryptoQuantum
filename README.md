@@ -17,8 +17,8 @@ A sophisticated cryptocurrency analysis and prediction platform featuring profes
 - **Technical Indicators**: RSI, price changes, volatility metrics
 
 #### 🎯 **AI-Powered Predictions**
-- **LSTM Neural Networks**: Advanced deep learning models
-- **Cache-Accelerated**: Ultra-fast predictions with 47 pre-trained models
+- **Attention-Enhanced LSTM**: State-of-the-art neural networks with attention mechanisms
+- **Cache-Accelerated**: Ultra-fast predictions with 49 pre-trained AttentionLSTM models
 - **Realistic Forecasting**: Market-based growth estimates with confidence bands
 - **Multiple Timeframes**: 30 days to 5 years prediction horizons
 
