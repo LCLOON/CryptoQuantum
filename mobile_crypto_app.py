@@ -10,9 +10,11 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
+import time
 from config import CRYPTO_SYMBOLS
 from market_data import get_crypto_info
 from cache_loader import CacheLoader
+from force_init import check_if_force_init_needed, force_initialize_app, display_force_init_button
 
 def load_mobile_css():
     """Load enhanced mobile-optimized CSS styling"""
@@ -504,6 +506,45 @@ def main():
     
     # Load mobile CSS
     load_mobile_css()
+    
+    # Check if initialization is needed FIRST (before creating cache loader)
+    # Use session state to prevent repeated initialization attempts
+    if 'initialization_complete' not in st.session_state:
+        st.session_state.initialization_complete = False
+    
+    # FORCE DEBUG: Always show initialization status
+    print("🔍 **DEBUG: Checking initialization system...**")  # This will show in Streamlit logs
+    
+    try:
+        init_needed = check_if_force_init_needed()
+        print(f"🔍 **DEBUG: Force init needed:** {init_needed}")  # This will show in Streamlit logs
+        st.info(f"🔍 **DEBUG: Force init needed:** {init_needed}")
+        st.info(f"🔍 **DEBUG: Session complete:** {st.session_state.initialization_complete}")
+        
+        if not st.session_state.initialization_complete and init_needed:
+            print("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")  # This will show in Streamlit logs
+            st.info("🚀 **CRYPTOQUANTUM INITIALIZATION REQUIRED**")
+            st.info("This may take up to 90 seconds for full ML training...")
+            
+            if force_initialize_app():
+                st.session_state.initialization_complete = True
+                st.session_state.force_init_needed = False
+                st.success("✅ **INITIALIZATION COMPLETE!** Reloading app...")
+                time.sleep(2)
+                st.rerun()
+            else:
+                st.error("❌ **INITIALIZATION FAILED!** Please refresh the page.")
+                st.stop()
+        else:
+            print(f"🔍 **DEBUG: Skipping init** - Complete: {st.session_state.initialization_complete}, Needed: {init_needed}")  # This will show in Streamlit logs
+            st.info(f"🔍 **DEBUG: Skipping init** - Complete: {st.session_state.initialization_complete}, Needed: {init_needed}")
+            
+    except Exception as e:
+        print(f"❌ **DEBUG: Initialization check failed:** {str(e)}")  # This will show in Streamlit logs
+        st.error(f"❌ **DEBUG: Initialization check failed:** {str(e)}")
+        import traceback
+        st.error(f"Traceback: {traceback.format_exc()}")
+        st.stop()
     
     # Enhanced Mobile header
     st.markdown("""
@@ -1117,3 +1158,9 @@ def validate_prediction(pred_price, current_price, days, symbol):
 
 if __name__ == "__main__":
     main()
+    
+    # Add debug tools to sidebar (only show after main app loads)
+    try:
+        display_force_init_button()
+    except Exception as e:
+        st.sidebar.error(f"Debug tools error: {str(e)}")
