@@ -1,1 +1,1 @@
-web: streamlit run app.py --server.port $PORT
+web: streamlit run mobile_crypto_app.py --server.port $PORT
